@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentario</title>
+</head>
+<body>
+    <section class="comentario">
+        <h2>Comente aqui sobre qualquer produto!</h2>
+        <form id="form-comentario">
+            <textarea id="input-comentario" placeholder="Digite seu comentário aqui" required></textarea>
+            <button type="button" onclick="publicarComentario()">Publicar Comentário</button>
+        </form>
+        <div id="comentarios-anteriores">
+            <!-- Aqui serão exibidos os comentários anteriores -->
+        </div>
+        <div id="mensagem-publicacao" class="mensagem-hidden">
+            <p id="mensagem-texto"></p>
+            <button id="fechar-mensagem" onclick="fecharMensagem()">X</button>
+        </div>
+      </section>
+      <script src="/static/comentario.js"></script>
+</body>
+</html>

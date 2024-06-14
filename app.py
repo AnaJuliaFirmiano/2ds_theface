@@ -90,7 +90,9 @@ def emails_cadastrados():
     return render_template('emails_cadastrados.html', emails=emails)
 
 
-
+@app.route('/comentario.html')
+def comentario():
+    return render_template('comentario.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
