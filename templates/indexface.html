@@ -47,8 +47,8 @@
                 <p>{{  produto[3] }}</p>
               <form action="/adicionar_carrinho" method="post">
                 <input type="hidden" name="produto_id" value="{{ produto.id_do_produto }}">
-                <button type="submit">Adicionar ao Carrinho</button>
               </form>
+              <a href="/carrinho" class="comprar-button">Comprar</a>
               </div>
             </div>
           {% endfor %}
