@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -200,4 +203,97 @@ body {
   border-radius: 5px;
   margin: 20px auto; 
   display: block; 
+}
+
+
+
+
+/* styles-login.css */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 40px auto; /* Adicionando espaço entre o formulário e o conteúdo acima */
+  padding: 40px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+  padding-bottom: 60px;
+}
+
+.h2-login {
+  text-align: center;
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.form-group-login {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+  font-size: 16px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+  border-color: #007bff;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.p {
+  text-align: center;
+  margin-top: 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+a {
+  display: block;
+  text-align: center;
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 14px;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+.mensagem {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  background-color: #4CAF50; /* Cor de fundo verde */
+  color: white; /* Cor do texto branco */
+  border-radius: 5px; /* Borda arredondada */
+  font-size: 16px;
+  
 }
