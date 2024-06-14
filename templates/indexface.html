@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styleface.css">
+    <script src="https://kit.fontawesome.com/cbfeaec436.js" crossorigin="anonymous"></script>
+    <title>TheFace</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">TheFace</div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Carrinho</a></li>
+            <li><a href="#">Usuário</a></li>
+        </ul>
+    </nav>
+
+    <div class="container1-face">
+    <div class="apresenta-face">
+        <!-- <img src="/img/lancamento.png" alt="Principal"> -->
+        <!-- <h1 class="principal-face">A essência da elegância em cada gota</h1>. -->
+    </div>
+    </div>
+
+    <div class="container2-face">
+    <div id="produtoSorteado">
+        <!-- <img src="" alt="Produto Sorteado" id="imagemProduto"> -->
+        <button id="botaoSortear">Sortear</button>
+    </div>
+    </div>
+
+    <div class="container3-face">
+
+    <input type="text" id="pesquisa" oninput="pesquisar()" placeholder="Pesquise aqui...">
+
+    <div class="container">
+        <div class="carrossel">
+          <div class="interior-carrossel">
+            {% for produto in produtos %}
+            <div class="itens ativo">
+              <img src="{{ produto[4] }}" alt="">
+              <div class="desc">
+                <h4>{{ produto[1] }}</h4>
+                <p>{{  produto[3] }}</p>
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+          <button class="anterior">&#10094;</button>
+          <button class="próximo">&#10095;</button>
+        </div>
+      </div>
+    </div>
+    <script src="/static/scriptface.js"></script>
+</body>
+</html>
