@@ -4,6 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comentario</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #d1ffd3;
+        }
+
+        .comentario {
+            width: 80%;
+            margin: 50px auto;
+            background: linear-gradient(to bottom, #ffffff, #f0f0f0);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #input-comentario {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            resize: none;
+        }
+
+        button {
+            background: linear-gradient(to bottom, #4CAF50 0%, #45a049 100%);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background: linear-gradient(to bottom, #45a049 0%, #4CAF50 100%);
+        }
+
+        #comentarios-anteriores {
+            margin-top: 30px;
+        }
+
+        .mensagem-hidden {
+            display: none;
+            background: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        #fechar-mensagem {
+            border: none;
+            background: none;
+            color: #155724;
+            cursor: pointer;
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
     <section class="comentario">
@@ -19,7 +94,8 @@
             <p id="mensagem-texto"></p>
             <button id="fechar-mensagem" onclick="fecharMensagem()">X</button>
         </div>
-      </section>
-      <script src="/static/comentario.js"></script>
+    </section>
+    <script src="/static/comentario.js"></script>
 </body>
 </html>
+
