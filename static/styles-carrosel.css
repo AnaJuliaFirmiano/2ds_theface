@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+
+
+/* Estilo para a seção de produtos */
+
+  
+
+  
+  .carousel-section {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .carousel-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #444;
+  }
+  
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: #fff;
+  }
+  
+  .lista {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .item {
+    min-width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .item img {
+    width: 500px;  /* Largura fixa */
+    height: 650px;  /* Altura fixa */
+    object-fit: cover;  /* Mantém a proporção da imagem */
+    border-radius: 10px;
+  }
+  
+  
+  .item .content {
+    font-size: 1.5em;
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translate@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');Y(-50%);
+  }
+  
+  .controls button {
+    background-color: #fff;
+    border: none;
+    color: #444;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    width: 50px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .controls button:hover {
+    background-color: #f0f0f0;
+    color: #777;
+  }
+  
+  .hidden {
+    display: none;
+  }
