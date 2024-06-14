@@ -5,6 +5,7 @@ from usuario import BancoDeDados
 import random
 
 app = Flask(__name__)
+app.secret_key = "anas"
 
 @app.route("/")
 def pagina_inicial():
@@ -41,7 +42,6 @@ def ver_carrinho():
     mybd.close()
 
     return render_template("carrinho.html", carrinho_detalhes=carrinho_detalhes)
-
 
 
 @app.route("/cadastro")
@@ -89,8 +89,7 @@ def emails_cadastrados():
     emails = banco.listar_emails()
     return render_template('emails_cadastrados.html', emails=emails)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+
 
 
 if __name__ == "__main__":

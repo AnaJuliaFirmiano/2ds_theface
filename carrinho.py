@@ -17,7 +17,7 @@ def adicionar_carrinho():
     else:
         session["carrinho"][produto_id] = quantidade
 
-        return redirect("/")
+        return redirect("/carrinho")
 
 @app.route("/remover_item", methods=["POST"])
 def remover_item():
