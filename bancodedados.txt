@@ -24,6 +24,9 @@ CREATE TABLE tb_carrinho(
     FOREIGN KEY (id_produto) REFERENCES tb_produto(id_do_produto)
 );
 
+INSERT INTO tb_carrinho (id_do_produto, valor, descricao, foto) VALUES
+(1, 'Hidratante Floratta', 70.67, 'Cheiro de flores.', '/static/img/carrossel1.png');
+
 CREATE TABLE tb_comentario (
     id_comentario INT AUTO_INCREMENT PRIMARY KEY,
     texto_comentario VARCHAR(600),
@@ -38,5 +41,7 @@ INSERT INTO tb_produto (id_do_produto, nome, valor, descricao, foto) VALUES
 (1, 'Hidratante Floratta', 70.67, 'Cheiro de flores.', '/static/img/carrossel1.png'),
 (2, 'Sabonete Facial Piscinni', 65.90, 'Limpa sua pele profundamente.', '/static/img/carrossel2.png'),
 (3, 'Vitamina C Tropicalli', 39.50, 'Saúde e estética em um só produto', '/static/img/carrossel3.png'),
-(4, 'Hidratante Corporal Intensivo', 39.90, 'Hidratação profunda para a pele.', '/static/img/hidratante_corporal.jpg'),
-(5, 'Sérum Facial Iluminador', 55.90, 'Ilumina e revitaliza a pele do rosto.', '/static/img/serum_iluminador.jpg');
+(4, 'Hidratante Corporal Intensivo', 39.90, 'Hidratação profunda para a pele.', '/static/img/carrossel1.png'),
+(5, 'Sérum Facial Iluminador', 55.90, 'Ilumina e revitaliza a pele do rosto.', '/static/img/carrossel2.png');
+
+SELECT * FROM tb_carrinho;
