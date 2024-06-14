@@ -65,7 +65,7 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    transform: translate@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');Y(-50%);
+    transform: translate url('https://fonts.googleapis.com/css2?family=Poppins&display=swap')Y(-50%);
   }
   
   .controls button {
