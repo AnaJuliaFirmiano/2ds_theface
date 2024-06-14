@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='styles-cadastro.css')}}">
+    <title>Cadastro</title>
+
+</head>
+<body>
+    <section>
+        <div class="cadastro-container">
+            <h2 class="h2-cadastro">Cadastro</h2>
+            {% if mensagem %}
+            <div id="mensagem-cadastro">{{ mensagem }}</div>
+            {% endif %}
+            <form action="/cadastrar" method="POST">
+                <div class="form-group-cadastro">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" required>
+                </div>
+                <div class="form-group-cadastro">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group-cadastro">
+                    <label for="senha">Senha:</label>
+                    <input type="password" id="senha" name="senha" required>
+                </div>
+                <button type="submit" id="cadastrar">Cadastrar</button>
+                <p class="p">Já possui uma conta?</p>
+                <a href="/#login-container">Faça login</a>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        var mensagemCadastro = "{{ mensagem }}";
+        var mensagemCadastroDiv = document.getElementById("mensagem-cadastro");
+        if (mensagemCadastro) {
+            mensagemCadastroDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
+
+
+   
+    
