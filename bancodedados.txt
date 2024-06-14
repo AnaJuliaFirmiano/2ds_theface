@@ -1,0 +1,42 @@
+CREATE DATABASE theface;
+USE theface;
+
+CREATE TABLE tb_usuario(
+	email VARCHAR(50) PRIMARY KEY ,
+    senha NUMERIC,
+    nome VARCHAR(80)
+);
+
+CREATE TABLE tb_produto(
+    id_do_produto NUMERIC PRIMARY KEY,
+    nome VARCHAR (100),
+    valor NUMERIC,
+    descricao VARCHAR(600),
+    foto VARCHAR(255),
+    email_usuario VARCHAR(50),
+    FOREIGN KEY (email_usuario) REFERENCES tb_usuario(email)
+);
+
+CREATE TABLE tb_carrinho(
+	id_produto NUMERIC,
+    email_usuario VARCHAR(50),
+    FOREIGN KEY (email_usuario) REFERENCES tb_usuario(email),
+    FOREIGN KEY (id_produto) REFERENCES tb_produto(id_do_produto)
+);
+
+CREATE TABLE tb_comentario (
+    id_comentario INT AUTO_INCREMENT PRIMARY KEY,
+    texto_comentario VARCHAR(600),
+    avaliacao NUMERIC, 
+    email_usuario VARCHAR(50),
+    FOREIGN KEY (email_usuario) REFERENCES tb_usuario(email)
+);
+
+SELECT * FROM tb_produto;
+
+INSERT INTO tb_produto (id_do_produto, nome, valor, descricao, foto) VALUES
+(1, 'Hidratante Floratta', 70.67, 'Cheiro de flores.', '/static/img/carrossel1.png'),
+(2, 'Sabonete Facial Piscinni', 65.90, 'Limpa sua pele profundamente.', '/static/img/carrossel2.png'),
+(3, 'Vitamina C Tropicalli', 39.50, 'Saúde e estética em um só produto', '/static/img/carrossel3.png'),
+(4, 'Hidratante Corporal Intensivo', 39.90, 'Hidratação profunda para a pele.', '/static/img/hidratante_corporal.jpg'),
+(5, 'Sérum Facial Iluminador', 55.90, 'Ilumina e revitaliza a pele do rosto.', '/static/img/serum_iluminador.jpg');
