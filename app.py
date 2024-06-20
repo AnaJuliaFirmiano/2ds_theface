@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, redirect, render_template, session
 from hashlib import sha256
 from conexao import Conexao
 from usuario import BancoDeDados
+from carrinho import Carrinho
 import random
 
 app = Flask(__name__)
@@ -25,11 +26,11 @@ def pagina_inicial():
 @app.route("/add_carrinho", methods=["POST"])
 def add_carrinho():
     if "usuario" not in session:
-        return redirect("/login")
+        return redirect("/indexface")
     
     id_produto = request.form['id_produto']
     qtd_carrinho = 1
-    email_usuario = session['usuario_logado']['email_usuario']
+    email_usuario = session['usuario']['email_usuario']
 
     mybd = Conexao.conectar()
     cursor = mybd.cursor()
@@ -43,7 +44,7 @@ def add_carrinho():
 
 @app.route("/carrinho")
 def mostrar_carrinho():
-    email_usuario = session['usuario_logado']['id_cliente']
+    email_usuario = session['usuario']['id_cliente']
     produtos = Carrinho.get_carrinho(email_usuario)
     return render_template("carrinho.html", produtos=produtos)
 
@@ -81,7 +82,7 @@ def login():
 
     if usuario:
         mensagem = "Login bem-sucedido!"
-        return render_template("index.html", mensagem=mensagem)
+        return render_template("indexface.html", mensagem=mensagem)
     else:
         mensagem = "Email ou senha incorretos. Tente novamente."
         return render_template("indexface.html", mensagem=mensagem)
