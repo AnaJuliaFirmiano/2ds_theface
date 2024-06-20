@@ -1,32 +1,33 @@
-from flask import Flask, request, jsonify, redirect, render_template, session
-from hashlib import sha256
 from conexao import Conexao
 
-app = Flask(__name__)
 
-@app.route("/adicionar_carrinho", methods=["POST"])
-def adicionar_carrinho():
-    produto_id = request.form["produto_id"]
-    quantidade = int(request.form["quantidade"])
+class Carrinho:
+    def add_carrinho(email_usuario, id_produto):
+        conexao = Conexao.conectar()
+        cursor = conexao.cursor()
 
-    if "carrinho" not in session:
-        session["carrinho"] = {}
+        sql = "INSERT INTO tb_carrinho (email_usuario, id_produto) VALUES (%s, %s, %s)"
+        valores = (email_usuario, id_produto)
 
-    if produto_id in session["carrinho"]:
-        session["carrinho"][produto_id] += quantidade
-    else:
-        session["carrinho"][produto_id] = quantidade
+        cursor.execute(sql, valores)
+        conexao.commit()
 
-        return redirect("/carrinho")
+        cursor.close()
+        conexao.close()
 
-@app.route("/remover_item", methods=["POST"])
-def remover_item():
-    produto_id = request.form["produto_id"]
+    def get_carrinho(email_usuario):
+        conexao = Conexao.conectar()
+        cursor = conexao.cursor(dictionary=True)
 
-    if "carrinho" in session and produto_id in session["carrinho"]:
-        del session["carrinho"]["produto_id"]
+        sql = """
+        SELECT p.nome, p.valor FROM tb_produto p INNER JOIN tb_carrinho c ON p.id_produto WHERE c.id_cliente = %s
+        """
 
-    return redirect("/carrinho")
+        valores = (email_usuario,)
+        cursor.execute(sql, valores)
+        produtos = cursor.fetchall()
 
-if __name__ == "__main__":
-    app.run(debug=True)
+        cursor.close()
+        conexao.close()
+
+        return produtos

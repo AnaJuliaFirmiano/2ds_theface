@@ -22,27 +22,30 @@ def pagina_inicial():
 
     return render_template('indexface.html', produtos=produtos)
     
-@app.route("/carrinho")
-def ver_carrinho():
-    carrinho_detalhes = []
-
-    if "carrinho" not in session:
-        session["carrinho"] = {}
+@app.route("/add_carrinho", methods=["POST"])
+def add_carrinho():
+    if "usuario" not in session:
+        return redirect("/login")
+    
+    id_produto = request.form['id_produto']
+    qtd_carrinho = 1
+    email_usuario = session['usuario_logado']['email_usuario']
 
     mybd = Conexao.conectar()
     cursor = mybd.cursor()
 
-    for produto_id, quantidade in session["carrinho"].items():
-        cursor.execute("SELECT nome, valor FROM tb_produto WHERE id_do_produto = %s", (produto_id))
-        produto = cursor.fetchone()
-        carrinho_detalhes.append({"nome": produto[0], "valor": produto[1], "quantidade": quantidade})
-
+    sql = "INSERT INTO tb_carrinho (qtd_carrinho, id_produto, email_usuario) VALUES (%s, %s, %s)"
 
     cursor.close()
     mybd.close()
 
-    return render_template("carrinho.html", carrinho_detalhes=carrinho_detalhes)
+    return render_template("/carrinho")
 
+@app.route("/carrinho")
+def mostrar_carrinho():
+    email_usuario = session['usuario_logado']['id_cliente']
+    produtos = Carrinho.get_carrinho(email_usuario)
+    return render_template("carrinho.html", produtos=produtos)
 
 @app.route("/cadastro")
 def pagina_cadastro():
@@ -81,7 +84,7 @@ def login():
         return render_template("index.html", mensagem=mensagem)
     else:
         mensagem = "Email ou senha incorretos. Tente novamente."
-        return render_template("index.html", mensagem=mensagem)
+        return render_template("indexface.html", mensagem=mensagem)
 
 @app.route('/emails_cadastrados')
 def emails_cadastrados():
